@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="analog.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="clock">
+        <div class=outer-face>
+            <div class="mark one"></div>
+            <div class="mark two"></div>
+            <div class="mark three"></div>
+            <div class="mark four"></div>
+        </div>
+        <div class="inner-face">
+            <div class="hand hour"></div>
+        <div class="hand min"></div>
+        <div class="hand sec"></div>
+        </div>
+        
+    </div>
+    
+
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            background: #282828;
+        }
+        .clock{
+            width: 20rem;
+            height: 20rem;
+            border-radius: 50%;
+            border: 7px solid #282828;
+           position: relative;
+           margin: 150px auto;
+           box-shadow: -4px -4px 10px rgba(67,67,67,0.5),
+           inset 4px 4px 10px rgba(0,0,0,0.5),
+           inset -4px -4px 10px rgba(67,67,67,0.5),
+           4px 4px 10px rgba(0,0,0,0.5)
+           ;
+        }
+        .outer-face{
+            width:100%;
+            height:100%;
+            background:#282828;
+            position: relative;
+            border-radius: 100%; 
+            /* overflow: hidden; */
+        }
+        .outer-face::after{
+            transform: rotate(90deg);
+        }
+        .outer-face::after,
+        .outer-face::before,
+        .outer-face .mark
+        {
+            content:'';
+            position: absolute;
+            width:4px;
+            height:100%;
+            background: #1df52f;
+            z-index: 0;
+            left: 49%;
+        }
+        .outer-face .mark{
+            width: 4px;
+            background: #bdbdcb;
+
+        }
+        .outer-face .mark.one{
+            transform: rotate(30deg);
+        }
+        .outer-face .mark.two{
+            transform: rotate(60deg);
+        }
+        .outer-face .mark.three{
+            transform: rotate(120deg);
+        }
+        .outer-face .mark.four{
+            transform: rotate(150deg);
+        }
+        .inner-face{
+            border-radius: 100%;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background: #282828;z-index: 1;
+        }
+
+        .hand{
+            width: 50%;
+            right: 50%;
+            height: 6px;
+            background: #61afff;
+            position: absolute;
+            top: 50%;
+            border-radius: 6px;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition-timing-function: cubic-bezier(0.1,2.7,0.58,1);
+        } 
+
+        .hand.hour{
+            width:30%;
+            z-index: 3;
+        }
+        .hand.min{
+            height: 3px;
+            z-index: 10;
+            width: 40%;
+        }
+        .hand.sec{
+            background: #ee791a;
+            width: 45%;
+            height: 2px;
+        }
+    </style>
+</body>
+</html>
